@@ -8,7 +8,10 @@ For MyArrayList, you are instructed to create an instance variable of type Objec
 For MyLinkedList, you are instructed to create a private inner class called Node that contains an element of type E and references to the next and previous nodes in the list. You should also define instance variables called head and tail to reference the first and last nodes in the list, respectively. Similarly to MyArrayList, you should implement the add, get, and remove methods, as well as the size method, as specified in the instructions.
 
 ## MyArrayList methods
+<details>
 
+<summary>Methods</summary>
+  <details>
   <details>
   <summary>size()</summary>
   Returns the number of elements in the list.
