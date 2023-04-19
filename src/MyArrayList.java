@@ -111,12 +111,21 @@ public class MyArrayList<T> implements MyList<T> {
         return false;
     }
 
+    /**
+     * clear initializing array with size 5 and setting size 0
+     */
     @Override
     public void clear() {
         this.arr = (T[]) new Object[5];
         this.size = 0;
     }
 
+    /**
+     * get - gets the element at the specified index
+     * @param index
+     * @return the element at the specified index
+     * @throws IndexOutOfBoundsException if the index is out of range below
+     */
     @Override
     public T get(int index) {
         checkIndex(index);
