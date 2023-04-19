@@ -49,21 +49,29 @@ public class MyLinkedList<T> implements MyList<T> {
         size++; // Increment the size of the list
     }
 
+    // Add an element at the specified index
     @Override
     public void add(T element, int index) {
+        // Check if index is valid
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException();
         }
+        // Create a new node with the given element
         Node node = new Node(element);
+        // Special case for adding at the beginning of the list
         if (index == 0) {
             node.next = head;
             head.prev = node;
             head = node;
-        } else if (index == size) {
+        }
+        // Special case for adding at the end of the list
+        else if (index == size) {
             tail.next = node;
             node.prev = tail;
             tail = node;
-        } else {
+        }
+        // General case for adding in the middle of the list
+        else {
             Node current = head;
             for (int i = 0; i < index; i++) {
                 current = current.next;
@@ -73,15 +81,18 @@ public class MyLinkedList<T> implements MyList<T> {
             current.prev.next = node;
             current.prev = node;
         }
-        size++;
+        size++; // Increment the size of the list
     }
 
+    // Remove the first occurrence of the specified item from the list
     @Override
     public boolean remove(T item) {
         Node current = head;
 
         while (current != null) {
+            // If the current node contains the item to remove
             if (current.element.equals(item)) {
+                // Special case for removing the first node in the list
                 if (current.prev == null) {
                     head = current.next;
                     if (head != null) {
@@ -89,21 +100,27 @@ public class MyLinkedList<T> implements MyList<T> {
                     } else {
                         tail = null;
                     }
-                } else if (current.next == null) {
+                }
+                // Special case for removing the last node in the list
+                else if (current.next == null) {
                     tail = current.prev;
                     tail.next = null;
-                } else {
+                }
+                // General case for removing a node in the middle of the list
+                else {
                     current.prev.next = current.next;
                     current.next.prev = current.prev;
                 }
-                size--;
+                size--; // Decrement the size of the list
                 return true;
             }
             current = current.next;
         }
+        // If the item was not found in the list, return false
         return false;
     }
 
+    // Remove the element at the specified index and return it
     @Override
     public T remove(int index) {
         if (index < 0 || index >= size) {
@@ -152,6 +169,7 @@ public class MyLinkedList<T> implements MyList<T> {
         return (T) current.element;
     }
 
+    // Removes all elements from the list
     @Override
     public void clear() {
         head = null;
@@ -159,6 +177,7 @@ public class MyLinkedList<T> implements MyList<T> {
         size = 0;
     }
 
+    // Returns the element at the specified index in the list
     @Override
     public T get(int index) {
         if (index < 0 || index >= size) {
@@ -166,7 +185,7 @@ public class MyLinkedList<T> implements MyList<T> {
         }
         Node current;
         int count;
-
+        // Traverse the list from the head if the index is in the first half of the list
         if (index < size / 2) {
             current = head;
             count = 0;
@@ -174,6 +193,7 @@ public class MyLinkedList<T> implements MyList<T> {
                 current = current.next;
                 count++;
             }
+            // Traverse the list from the tail if the index is in the second half of the list
         } else {
             current = tail;
             count = size - 1;
@@ -186,6 +206,8 @@ public class MyLinkedList<T> implements MyList<T> {
         return (T) current.element;
     }
 
+    // Returns the index of the first occurrence of the specified element in the list,
+    // or -1 if the element is not found in the list
     @Override
     public int indexOf(Object o) {
         Node curr = head;
@@ -200,6 +222,8 @@ public class MyLinkedList<T> implements MyList<T> {
         return -1;
     }
 
+    // Returns the index of the last occurrence of the specified element in the list,
+    // or -1 if the element is not found in the list
     @Override
     public int lastIndexOf(Object o) {
         Node curr = tail;
@@ -214,8 +238,10 @@ public class MyLinkedList<T> implements MyList<T> {
         return -1;
     }
 
+    // Sorts the elements in the list in ascending order
     @Override
     public void sort() {
+        // If the list is empty or contains only one element, no need to sort
         if (size <= 1) {
             return;
         }
@@ -224,6 +250,7 @@ public class MyLinkedList<T> implements MyList<T> {
             swapped = false;
             Node curr = head;
             while (curr.next != null) {
+                // If the current element is greater than the next element, swap them
                 if (((Comparable<T>) (T) curr.element).compareTo((T)curr.next.element) > 0) {
                     // Swap elements
                     T temp = (T) curr.element;
