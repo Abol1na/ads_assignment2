@@ -6,11 +6,12 @@ public class MyArrayList<T> implements MyList<T> {
         this.arr = (T[]) new Object[5];
         this.size = 0;
     }
-    public void  add(T element){
+    @Override
+    public void add(T item) {
         if(size == arr.length){
             increaseBuffer();
         }
-        arr[size++] = element;
+        arr[size++] = item;
     }
 
     @Override
