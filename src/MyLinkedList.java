@@ -102,7 +102,50 @@ public class MyLinkedList<T> implements MyList<T> {
 
     @Override
     public T remove(int index) {
-        return null;
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException();
+        }
+
+        Node current;
+
+        if (index == 0) {
+            current = head;
+            head = current.next;
+            if (head != null) {
+                head.prev = null;
+            } else {
+                tail = null;
+            }
+        } else if (index == size - 1) {
+            current = tail;
+            tail = current.prev;
+            if (tail != null) {
+                tail.next = null;
+            } else {
+                head = null;
+            }
+        } else {
+            if (index < size / 2) {
+                current = head;
+                int count = 0;
+                while (count < index) {
+                    current = current.next;
+                    count++;
+                }
+            } else {
+                current = tail;
+                int count = size - 1;
+                while (count > index) {
+                    current = current.prev;
+                    count--;
+                }
+            }
+            current.prev.next = current.next;
+            current.next.prev = current.prev;
+        }
+
+        size--;
+        return (T) current.element;
     }
 
     public void increaseBuffer() {
