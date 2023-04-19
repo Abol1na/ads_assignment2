@@ -25,6 +25,7 @@ For MyLinkedList, you are instructed to create a private inner class called Node
   <summary>add(T item, int index)</summary>
   Adds the specified element to the list at the specified index. If the index is out of range, an IndexOutOfBoundsException is thrown.
   </details>
+  <details>
   <summary>remove(T item)</summary>
   Removes the first occurrence of the specified element from the list, if it is present. Returns true if the element was removed, false otherwise.
   </details>
