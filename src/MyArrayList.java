@@ -31,6 +31,15 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public boolean remove(T item) {
+        for(int i = 0; i < size; i++){
+            if(arr[i].equals(item)){
+                for(int j = i; j < size-1; j++){
+                    arr[j] = arr[j+1];
+                }
+                size--;
+                return true;
+            }
+        }
         return false;
     }
 
