@@ -45,7 +45,13 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public T remove(int index) {
-        return null;
+        checkIndex(index);
+        T removedItem = arr[index];
+        for(int i = index; i < size-1; i++){
+            arr[i] = arr[i+1];
+        }
+        size--;
+        return removedItem;
     }
 
     public void increaseBuffer(){
