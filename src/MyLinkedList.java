@@ -20,9 +20,9 @@ public class MyLinkedList<T> implements MyList<T> {
         size = 0;
     }
 
-        @Override
+    @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     @Override
@@ -53,11 +53,7 @@ public class MyLinkedList<T> implements MyList<T> {
     }
 
     public void increaseBuffer(){
-        T[] newArr = (T[]) new Object[arr.length*2];
-        for(int i=0; i< arr.length; i++){
-            newArr[i]=arr[i];
-        }
-        arr = newArr;
+
     }
 
     public T getElement(int index) {
