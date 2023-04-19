@@ -9,7 +9,7 @@ For MyLinkedList, you are instructed to create a private inner class called Node
 
 ## MyArrayList methods
 
-<summary>size()</summary>
+  <summary>size()</summary>
   Returns the number of elements in the list.
   </details>
   <details>
