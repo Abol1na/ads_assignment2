@@ -130,13 +130,6 @@ public class MyArrayList<T> implements MyList<T> {
         }
     }
 
-    public void delete(int index){
-        checkIndex(index);
-        for(int i= index + 1; i<size; i++){
-            arr[i-1] = arr[i];
-        }
-        size--;
-    }
     private void checkIndex(int index){
         if(index < 0 || index >= size){
             throw new IndexOutOfBoundsException();
