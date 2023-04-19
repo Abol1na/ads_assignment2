@@ -148,10 +148,6 @@ public class MyLinkedList<T> implements MyList<T> {
         return (T) current.element;
     }
 
-    public void increaseBuffer() {
-
-    }
-
     @Override
     public void clear() {
         head = null;
@@ -216,6 +212,23 @@ public class MyLinkedList<T> implements MyList<T> {
 
     @Override
     public void sort() {
-
+        if (size <= 1) {
+            return;
+        }
+        boolean swapped;
+        do {
+            swapped = false;
+            Node curr = head;
+            while (curr.next != null) {
+                if (((Comparable<T>) (T) curr.element).compareTo((T)curr.next.element) > 0) {
+                    // Swap elements
+                    T temp = (T) curr.element;
+                    curr.element = curr.next.element;
+                    curr.next.element = (T) temp;
+                    swapped = true;
+                }
+                curr = curr.next;
+            }
+        } while (swapped);
     }
 }
