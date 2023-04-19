@@ -55,6 +55,7 @@ For MyLinkedList, you are instructed to create a private inner class called Node
   <summary>sort()</summary>
   Sorts the elements in the list in ascending order using their natural order.
   </details>
+  </details>
 
 ## Getting Started
 
