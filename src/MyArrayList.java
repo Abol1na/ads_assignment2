@@ -146,6 +146,12 @@ public class MyArrayList<T> implements MyList<T> {
         return -1;
     }
 
+    /**
+     * Returns the index of the last occurrence of the specified element in the list, or -1 if the list does not contain the element.
+     *
+     * @param o the element to search for
+     * @return the index of the last occurrence of the element in the list, or -1 if the list does not contain the element
+     */
     @Override
     public int lastIndexOf(Object o) {
         for(int i = size-1; i >= 0; i--){
@@ -156,6 +162,9 @@ public class MyArrayList<T> implements MyList<T> {
         return -1;
     }
 
+    /**
+     * sorts the list using the natural order of elements
+     */
     @Override
     public void sort() {
         boolean swap = true;
@@ -173,6 +182,11 @@ public class MyArrayList<T> implements MyList<T> {
         }
     }
 
+
+    /**
+     * checkIndex - helper method to check if the given index is valid
+     * @param index
+     */
     private void checkIndex(int index){
         if(index < 0 || index >= size){
             throw new IndexOutOfBoundsException();
