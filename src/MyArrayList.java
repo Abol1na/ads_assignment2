@@ -39,7 +39,11 @@ public class MyArrayList<T> implements MyList<T> {
         arr[index] = item;
         size++;
     }
-
+    /**
+     * Removes an item from the array
+     * @param item
+     * @return true if found and removed, false otherwise
+     */
     @Override
     public boolean remove(T item) {
         for(int i = 0; i < size; i++){
@@ -53,7 +57,12 @@ public class MyArrayList<T> implements MyList<T> {
         }
         return false;
     }
-
+    /**
+     * remove deletes an item from the array at a specific index.
+     * @param index
+     * @return the removed item
+     * @throws IndexOutOfBoundsException if index is out of range below
+     */
     @Override
     public T remove(int index) {
         checkIndex(index);
