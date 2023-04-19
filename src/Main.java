@@ -7,10 +7,10 @@ public class Main {
     public static void main(String[] args) {
         MyArrayList<Integer> myList = new MyArrayList<>();
         Scanner scanner = new Scanner(System.in);
-        myList.add(7);
+        myList.add(6);
         myList.add(4);
         myList.add(1);
-        myList.add(6);
+        myList.add(10);
         myList.add(6);
         myList.add(5);
         for (int i = 0; i< myList.size();i++){
