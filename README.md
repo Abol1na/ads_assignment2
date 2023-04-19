@@ -41,3 +41,15 @@ For MyLinkedList, you are instructed to create a private inner class called Node
   <summary>get(int index)</summary>
   Returns the element at the specified index. If the index is out of range, an IndexOutOfBoundsException is thrown.
   </details>
+  <details>
+  <summary>indexOf(Object o)</summary>
+  Returns the index of the first occurrence of the specified element in the list, or -1 if the element is not present.
+  </details>
+  <details>
+  <summary>lastIndexOf(Object o)</summary>
+  Returns the index of the last occurrence of the specified element in the list, or -1 if the element is not present.
+  </details>
+  <details>
+  <summary>sort()</summary>
+  Sorts the elements in the list in ascending order using their natural order.
+  </details>
