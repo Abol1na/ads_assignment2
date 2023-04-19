@@ -16,7 +16,17 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public void add(T item, int index) {
-
+        if(index < 0 || index > size){
+            throw new IndexOutOfBoundsException();
+        }
+        if(size == arr.length){
+            increaseBuffer();
+        }
+        for(int i = size; i > index; i--){
+            arr[i] = arr[i-1];
+        }
+        arr[index] = item;
+        size++;
     }
 
     @Override
