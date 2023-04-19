@@ -1,48 +1,52 @@
 public class MyLinkedList<T> implements MyList<T> {
     private class Node {
-        T element;
-        Node next;
-        Node prev;
+        T element; // The element stored in the node
+        Node next; // Reference to the next node in the list
+        Node prev; // Reference to the previous node in the list
 
+        // Constructor for creating a new node with a given element
         public Node(T element) {
             this.element = element;
             this.next = null;
             this.prev = null;
         }
     }
+    // Instance variables for the linked list
+    private Node head; // Reference to the first node in the list
+    private Node tail; // Reference to the last node in the list
+    private int size; // Number of nodes in the list
 
-    private Node head;
-    private Node tail;
-    private int size;
-
+    // Constructor for creating a new, empty linked list
     public MyLinkedList() {
         head = null;
         tail = null;
         size = 0;
     }
 
+    // Returns the number of elements in the list
     @Override
     public int size() {
         return size;
     }
-
+    // Returns true if the list contains the given element, false otherwise
     @Override
     public boolean contains(Object o) {
         return indexOf(o) != -1;
     }
-
+    // Adds a new element to the end of the list
     @Override
     public void add(T element) {
-        Node node = new Node(element);
-        if (head == null) {
+        Node node = new Node(element); // Create a new node with the given element
+        if (head == null) { // If the list is empty, set the new node as both head and tail
+            head = node;
             head = node;
             tail = node;
-        } else {
-            tail.next = node;
-            node.prev = tail;
-            tail = node;
+        } else { // Otherwise, append the new node to the end of the list
+            tail.next = node; // Set the next reference of the current tail to the new node
+            node.prev = tail; // Set the prev reference of the new node to the current tail
+            tail = node; // Set the new node as the new tail of the list
         }
-        size++;
+        size++; // Increment the size of the list
     }
 
     @Override
