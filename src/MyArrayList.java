@@ -74,6 +74,7 @@ public class MyArrayList<T> implements MyList<T> {
         return removedItem;
     }
 
+
     private void increaseBuffer(){
         T[] newArr = (T[]) new Object[arr.length*2];
         for(int i=0; i< arr.length; i++){
@@ -86,6 +87,10 @@ public class MyArrayList<T> implements MyList<T> {
         checkIndex(index);
         return arr[index];
     }
+    /**
+     * Gets the size of the array
+     * @return the size of the array
+     */
     @Override
     public int size() {
         return size;
