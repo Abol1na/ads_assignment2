@@ -7,7 +7,7 @@ public class Main {
         myList.add(7);
         myList.add(4);
         myList.add(1);
-        myList.add(9);
+        myList.add(6);
         myList.add(6);
         myList.add(5);
         for (int i = 0; i< myList.size();i++){
