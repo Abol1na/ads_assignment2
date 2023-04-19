@@ -55,3 +55,7 @@ For MyLinkedList, you are instructed to create a private inner class called Node
   <summary>sort()</summary>
   Sorts the elements in the list in ascending order using their natural order.
   </details>
+
+## Getting Started
+
+To get started with the projects in this repository, you will need to have JDK 20 installed on your computer. You can download JDK from the official website: https://www.oracle.com/java/technologies/downloads/#java20
