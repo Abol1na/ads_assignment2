@@ -30,16 +30,48 @@ public class MyLinkedList<T> implements MyList<T> {
         return indexOf(o) != -1;
     }
 
-    public void  add(T element){
-        if(size == arr.length){
-            increaseBuffer();
+    @Override
+    public void add(T element) {
+        Node node = new Node(element);
+        if(head == null){
+            head = node;
+            tail = node;
         }
-        arr[size++] = element;
+        else{
+            tail.next = node;
+            node.prev = tail;
+            tail = node;
+        }
+        size++;
     }
 
     @Override
-    public void add(T item, int index) {
-
+    public void add(T element, int index) {
+        if(index < 0  || index > size) {
+            throw new IndexOutOfBoundsException();
+        }
+        Node node = new Node(element);
+        if(index == 0){
+            node.next = head;
+            head.prev = node;
+            head = node;
+        }
+        else if(index == size){
+            tail.next = node;
+            node.prev = tail;
+            tail = node;
+        }
+        else {
+            Node current = head;
+            for (int i = 0; i < index; i++) {
+                current = current.next;
+            }
+            node.next = current;
+            node.prev = current.prev;
+            current.prev.next = node;
+            current.prev = node;
+        }
+        size++;
     }
 
     @Override
@@ -56,14 +88,6 @@ public class MyLinkedList<T> implements MyList<T> {
 
     }
 
-    public T getElement(int index) {
-        checkIndex(index);
-        return arr[index];
-    }
-
-    public int getSize() {
-        return size;
-    }
     public void clear(){
         this.arr = (T[]) new Object[5];
         this.size = 0;
