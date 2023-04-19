@@ -96,6 +96,11 @@ public class MyArrayList<T> implements MyList<T> {
         return size;
     }
 
+    /**
+     * contains - checks if the array contains a certain object
+     * @param o the object to check for
+     * @return true if the object is found, false otherwise
+     */
     @Override
     public boolean contains(Object o) {
         for(int i = 0; i < size; i++){
