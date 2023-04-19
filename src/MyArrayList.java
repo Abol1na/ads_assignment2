@@ -54,7 +54,7 @@ public class MyArrayList<T> implements MyList<T> {
         return removedItem;
     }
 
-    public void increaseBuffer(){
+    private void increaseBuffer(){
         T[] newArr = (T[]) new Object[arr.length*2];
         for(int i=0; i< arr.length; i++){
             newArr[i]=arr[i];
