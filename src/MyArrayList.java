@@ -132,6 +132,10 @@ public class MyArrayList<T> implements MyList<T> {
         return arr[index];
     }
 
+    /**
+     * indexOf - returns the index of the first specified element in the list, or -1 if the list does not contain the element
+     * @param o the element to search for
+     */
     @Override
     public int indexOf(Object o) {
         for(int i = 0; i < size; i++){
