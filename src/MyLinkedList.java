@@ -10,6 +10,7 @@ public class MyLinkedList<T> implements MyList<T> {
             this.prev = null;
         }
     }
+
     private Node head;
     private Node tail;
     private int size;
@@ -33,11 +34,10 @@ public class MyLinkedList<T> implements MyList<T> {
     @Override
     public void add(T element) {
         Node node = new Node(element);
-        if(head == null){
+        if (head == null) {
             head = node;
             tail = node;
-        }
-        else{
+        } else {
             tail.next = node;
             node.prev = tail;
             tail = node;
@@ -47,21 +47,19 @@ public class MyLinkedList<T> implements MyList<T> {
 
     @Override
     public void add(T element, int index) {
-        if(index < 0  || index > size) {
+        if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException();
         }
         Node node = new Node(element);
-        if(index == 0){
+        if (index == 0) {
             node.next = head;
             head.prev = node;
             head = node;
-        }
-        else if(index == size){
+        } else if (index == size) {
             tail.next = node;
             node.prev = tail;
             tail = node;
-        }
-        else {
+        } else {
             Node current = head;
             for (int i = 0; i < index; i++) {
                 current = current.next;
@@ -76,6 +74,29 @@ public class MyLinkedList<T> implements MyList<T> {
 
     @Override
     public boolean remove(T item) {
+        Node current = head;
+
+        while (current != null) {
+            if (current.element.equals(item)) {
+                if (current.prev == null) {
+                    head = current.next;
+                    if (head != null) {
+                        head.prev = null;
+                    } else {
+                        tail = null;
+                    }
+                } else if (current.next == null) {
+                    tail = current.prev;
+                    tail.next = null;
+                } else {
+                    current.prev.next = current.next;
+                    current.next.prev = current.prev;
+                }
+                size--;
+                return true;
+            }
+            current = current.next;
+        }
         return false;
     }
 
@@ -84,13 +105,12 @@ public class MyLinkedList<T> implements MyList<T> {
         return null;
     }
 
-    public void increaseBuffer(){
+    public void increaseBuffer() {
 
     }
 
-    public void clear(){
-        this.arr = (T[]) new Object[5];
-        this.size = 0;
+    public void clear() {
+
     }
 
     @Override
@@ -113,16 +133,7 @@ public class MyLinkedList<T> implements MyList<T> {
 
     }
 
-    public void delete(int index){
-        checkIndex(index);
-        for(int i= index + 1; i<size; i++){
-            arr[i-1] = arr[i];
-        }
-        size--;
-    }
-    public void checkIndex(int index){
-        if(index < 0 || index>=size){
-            throw new IndexOutOfBoundsException();
-        }
+    public void delete(int index) {
+
     }
 }
