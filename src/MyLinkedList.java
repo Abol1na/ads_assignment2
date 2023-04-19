@@ -188,7 +188,16 @@ public class MyLinkedList<T> implements MyList<T> {
 
     @Override
     public int indexOf(Object o) {
-        return 0;
+        Node curr = head;
+        int index = 0;
+        while (curr != null) {
+            if (curr.element.equals(o)) {
+                return index;
+            }
+            curr = curr.next;
+            index++;
+        }
+        return -1;
     }
 
     @Override
