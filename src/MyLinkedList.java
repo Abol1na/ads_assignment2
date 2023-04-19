@@ -27,7 +27,7 @@ public class MyLinkedList<T> implements MyList<T> {
 
     @Override
     public boolean contains(Object o) {
-        return false;
+        return indexOf(o) != -1;
     }
 
     public void  add(T element){
