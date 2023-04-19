@@ -137,8 +137,8 @@ public class MyArrayList<T> implements MyList<T> {
         }
         size--;
     }
-    public void checkIndex(int index){
-        if(index < 0 || index>=size){
+    private void checkIndex(int index){
+        if(index < 0 || index >= size){
             throw new IndexOutOfBoundsException();
         }
     }
