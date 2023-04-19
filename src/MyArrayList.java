@@ -115,7 +115,19 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public void sort() {
+        boolean swap = true;
+        while (swap) {
+            swap = false;
+            for (int i = 1; i < size; i++) {
+                if (((Comparable) arr[i-1]).compareTo(arr[i]) > 0) {
+                    Object temp = arr[i-1];
+                    arr[i-1] = arr[i];
+                    arr[i] = (T) temp;
+                    swap = true;
+                }
+            }
 
+        }
     }
 
     public void delete(int index){
