@@ -19,6 +19,12 @@ public class MyArrayList<T> implements MyList<T> {
         arr[size++] = item;
     }
 
+    /**
+     * add adds an item to a specific index in the array. If the array is full, it doubles the capacity.
+     * @param item
+     * @param index
+     * @throws IndexOutOfBoundsException if index is out of range below
+     */
     @Override
     public void add(T item, int index) {
         if(index < 0 || index > size){
